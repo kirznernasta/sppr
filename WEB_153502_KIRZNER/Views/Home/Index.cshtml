@@ -2,18 +2,22 @@
     ViewBag.Title = "Index";
 }
 
-<h1>Лабораторная работа 1</h1>
+<h1>@ViewData["LabTitle"]</h1>
 <h2>Список</h2>
 <ol type="A">
-    <li>элемент 0 списка</li>
-    <li>элемент 1 списка</li>
-    <li>элемент 2 списка</li>
-    <li>элемент 3 списка</li>
-    <li>элемент 4 списка</li>
+    @for (int i = 0; i < 5; i++)
+    {
+        <li>элемент @i списка</li>
+    }
 </ol>
 <hr class="hr hr-blurry" />
 <h2>Форма</h2>
 <form method="POST">
+    <div class="row">
+        <div  class="col-sm-10 offset-sm-2">
+            <select class="form-select" name="selDemo" asp-items="@ViewData["ListDemo"] as SelectList"></select>
+        </div>
+    </div>
     <div class="col-sm-10 offset-sm-2">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" id="check1" name="check1">

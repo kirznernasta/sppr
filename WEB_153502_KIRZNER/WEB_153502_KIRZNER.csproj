@@ -11,11 +11,17 @@
   <ItemGroup>
     <None Remove="Controllers\" />
     <None Remove="Views\Home\" />
+    <None Remove="Views\Shared\Components\" />
+    <None Remove="Views\Shared\Components\Cart\" />
+    <None Remove="ViewComponents\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\Images\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\Cart\" />
+    <Folder Include="ViewComponents\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images\" />
