@@ -2,7 +2,7 @@
 using WEB_153502_KIRZNER.Domain.Entities;
 using WEB_153502_KIRZNER.Domain.Models;
 
-namespace WEB_153502_KIRZNER.Services.CategoryService
+namespace WEB_153502_KIRZNER.API.Services
 {
 	public interface ICategoryService
 	{

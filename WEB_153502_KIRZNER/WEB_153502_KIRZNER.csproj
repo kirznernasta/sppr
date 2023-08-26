@@ -18,6 +18,7 @@
     <None Remove="Services\CategoryService\" />
     <None Remove="Services\ProductService\" />
     <None Remove="Views\Product\" />
+    <None Remove="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -30,6 +31,7 @@
     <Folder Include="Services\CategoryService\" />
     <Folder Include="Services\ProductService\" />
     <Folder Include="Views\Product\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images\" />

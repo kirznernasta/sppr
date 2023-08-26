@@ -8,8 +8,7 @@ namespace WEB_153502_KIRZNER.Domain.Entities
 		public required string Description { get; set; }
 		public double Price { get; set; }
 		public string? Image { get; set; }
-        public string? ImageMimeType { get; set; }
-        public int? CategoryId { get; set; }
+        public string? CategoryNormalizedName { get; set; }
 	}
 }
 

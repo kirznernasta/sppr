@@ -24,24 +24,29 @@ namespace WEB_153502_KIRZNER.Controllers
 
         public async Task<IActionResult> Index(string? category, int pageNo = 1)
         {
-            int? categoryId;
-            if (category == null)
-            {
-                categoryId = null;
-                ViewData["currentCategory"] = "Все";
-            } else
-            {
-                var idResponse = await _categoryService.GetCategoryByNormalizedNameAsync(category);
-                categoryId = idResponse.Data.Id;
-                ViewData["currentCategory"] = idResponse.Data.Name;
-            }
-
-            var productResponse = await _productService.GetProductListAsync(categoryId, pageNo);
             var categoryResponse = await _categoryService.GetCategoryListAsync();
             if (categoryResponse.Success)
             {
                 ViewData["categories"] = categoryResponse.Data;
             }
+            if (category == null)
+            {
+                ViewData["currentCategory"] = "Все";
+            }
+            else
+            {
+                if (categoryResponse.Success)
+                {
+                    ViewData["currentCategory"] = categoryResponse.Data.First((c) => c.NormalizedName.Equals(category)).Name;
+                }
+                else
+                {
+                    return NotFound("Ошибка: нет такой категории");
+                }
+            }
+
+            var productResponse = await _productService.GetProductListAsync(category, pageNo);
+            
 
             if (!productResponse.Success)
             {
