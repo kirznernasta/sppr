@@ -1,24 +1,45 @@
 ﻿<Properties StartupConfiguration="{7922D490-9BA8-4E36-9ADE-65B7B6094626}|https">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" FirstBuild="True" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/_ViewImports.cshtml">
+    <Files>
+      <File FileName="Program.cs" Line="10" Column="65" />
+      <File FileName="Properties/launchSettings.json" />
+      <File FileName="Views/Shared/_MenuPartial.cshtml" />
+      <File FileName="Services/ProductService/IProductService.cs" Line="17" Column="1" />
+      <File FileName="Controllers/Product.cs" Line="36" Column="53" />
+      <File FileName="Views/_ViewImports.cshtml" Line="6" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="WEB_153502_KIRZNER">
-            <Node name="WEB_153502_KIRZNER" expanded="True">
-              <Node name="wwwroot" expanded="True">
-                <Node name="lib" selected="True" />
+          <Node name="WEB_153502_KIRZNER" expanded="True">
+            <Node name="WEB_153502_KIRZNER">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="CategoryService" expanded="True" />
+                <Node name="ProductService" expanded="True" />
               </Node>
+              <Node name="Views">
+                <Node name="Shared" expanded="True">
+                  <Node name="_MenuPartial.cshtml" selected="True" />
+                </Node>
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="Images" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="WEB_153502_KIRZNER.Domain">
+              <Node name="Entities" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

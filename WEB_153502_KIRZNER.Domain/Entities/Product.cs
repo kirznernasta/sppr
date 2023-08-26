@@ -1,0 +1,15 @@
+﻿using System;
+namespace WEB_153502_KIRZNER.Domain.Entities
+{
+	public class Product
+	{
+		public int Id { get; set; }
+		public required string Name { get; set; }
+		public required string Description { get; set; }
+		public double Price { get; set; }
+		public string? Image { get; set; }
+        public string? ImageMimeType { get; set; }
+        public int? CategoryId { get; set; }
+	}
+}
+

@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1706.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_153502_KIRZNER", "WEB_153502_KIRZNER.csproj", "{7922D490-9BA8-4E36-9ADE-65B7B6094626}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_153502_KIRZNER.Domain", "..\WEB_153502_KIRZNER.Domain\WEB_153502_KIRZNER.Domain.csproj", "{75714A61-20D7-49D2-BDC4-D28789E5C301}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7922D490-9BA8-4E36-9ADE-65B7B6094626}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7922D490-9BA8-4E36-9ADE-65B7B6094626}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7922D490-9BA8-4E36-9ADE-65B7B6094626}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75714A61-20D7-49D2-BDC4-D28789E5C301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75714A61-20D7-49D2-BDC4-D28789E5C301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75714A61-20D7-49D2-BDC4-D28789E5C301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75714A61-20D7-49D2-BDC4-D28789E5C301}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
