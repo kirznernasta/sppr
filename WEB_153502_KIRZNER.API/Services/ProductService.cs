@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using WEB_153502_KIRZNER.API.Data;
 using WEB_153502_KIRZNER.Domain.Entities;
 using WEB_153502_KIRZNER.Domain.Models;
@@ -10,25 +13,56 @@ namespace WEB_153502_KIRZNER.API.Services
 	{
         private AppDbContext _context;
         private readonly int _maxPageSize = 20;
+        private IHttpContextAccessor _httpContextAccessor;
+        private IWebHostEnvironment _environment;
 
-        public ProductService(AppDbContext context)
+        public ProductService(AppDbContext context, IHttpContextAccessor httpContextAccessor, IWebHostEnvironment environment)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
+            _environment = environment;
         }
 
-        public Task<ResponseData<Product>> CreateProductAsync(Product product)
+        public async Task<ResponseData<Product>> CreateProductAsync(Product product)
         {
-            throw new NotImplementedException();
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return new ResponseData<Product>
+            {
+                Data = product,
+                Success = true
+            };
         }
 
-        public Task DeleteProductAsync(int id)
+        public async Task DeleteProductAsync(int id)
         {
-            throw new NotImplementedException();
+            var product = await _context.Products.FindAsync(id);
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public Task<ResponseData<Product>> GetProductByIdAsync(int id)
+        public async Task<ResponseData<Product>> GetProductByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                var res = new ResponseData<Product>
+                {
+                    Data = null,
+                    Success = false,
+                    ErrorMessage = "Нет такого товара"
+                };
+                return res;
+            }
+            var result =  new ResponseData<Product>
+            {
+                Data = product,
+                Success = true
+            };
+            return result;
         }
 
         public Task<ResponseData<ProductListModel<Product>>> GetProductListAsync(string? categoryNormalizedName, int pageNo = 1, int pageSize = 3)
@@ -61,7 +95,7 @@ namespace WEB_153502_KIRZNER.API.Services
                 {
                     Data = null,
                     Success = false,
-                    ErrorMessage = "No such page"
+                    ErrorMessage = "Нет такой страницы"
                 };
                 return Task.FromResult(result);
             }
@@ -77,14 +111,63 @@ namespace WEB_153502_KIRZNER.API.Services
             return Task.FromResult(response);
         }
 
-        public Task<ResponseData<string>> SaveImageAsync(int id, IFormFile formFile)
+        public async Task<ResponseData<string>> SaveImageAsync(int id, IFormFile formFile)
         {
-            throw new NotImplementedException();
+            var responseData = new ResponseData<string>();
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                responseData.Success = false;
+                responseData.ErrorMessage = "Нет такого товара";
+                return responseData;
+            }
+            var host = "https://" + _httpContextAccessor.HttpContext.Request.Host;
+            var imageFolder = Path.Combine(_environment.WebRootPath, "Images");
+            if (formFile != null)
+            {
+                // Удалить предыдущее изображение
+                if (!string.IsNullOrEmpty(product.Image))
+                {
+                    var prevImage = Path.GetFileName(product.Image);
+                    var prevImagePath = Path.Combine(imageFolder, prevImage);
+
+                    if (File.Exists(prevImagePath))
+                    {
+                        File.Delete(prevImagePath);
+                    }
+                }
+                // Создать имя файла
+                var ext = Path.GetExtension(formFile.FileName);
+                var fName = Path.ChangeExtension(Path.GetRandomFileName(), ext);
+                // Сохранить файл
+                using (var fileStream = new FileStream($"{imageFolder}/{fName}", FileMode.Create))
+                {
+                    await formFile.CopyToAsync(fileStream);
+                }
+                // Указать имя файла в объекте
+                product.Image = $"{host}/Images/{fName}";
+                await _context.SaveChangesAsync();
+            }
+            responseData.Data = product.Image;
+            return responseData;
         }
 
-        public Task UpdateProductAsync(int id, Product product)
+        public async Task UpdateProductAsync(int id, Product product)
         {
-            throw new NotImplementedException();
+            var prod = await _context.Products.FindAsync(id);
+            if (prod != null)
+            {
+                prod.Name = product.Name;
+                prod.Description = product.Description;
+                prod.Price = product.Price;
+                if (product.Image is not null)
+                {
+                    prod.Image = product.Image;
+                }
+                prod.CategoryNormalizedName = product.CategoryNormalizedName;
+               _context.Update(prod);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

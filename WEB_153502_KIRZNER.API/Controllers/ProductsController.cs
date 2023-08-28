@@ -18,12 +18,29 @@ namespace WEB_153502_KIRZNER.API.Controllers
     public class ProductsController : ControllerBase
     {
         private IProductService _productService;
-        private ICategoryService _categoryService;
+        private string _imagesPath;
+        private string _appUri;
+        private ILogger _logger;
 
-        public ProductsController(IProductService productService, ICategoryService categoryService)
+        public ProductsController(IProductService productService, IWebHostEnvironment env, IConfiguration configuration, ILogger<ProductsController> logger)
         {
             _productService = productService;
-            _categoryService = categoryService;
+            _logger = logger;
+            _imagesPath = Path.Combine(env.WebRootPath, "Images");
+            _appUri = configuration.GetSection("appUri").Value;
+        }
+
+        // POST: api/Products/5
+        [HttpPost("{id}")]
+        public async Task<ActionResult<ResponseData<string>>> PostImage(int id, IFormFile formFile)
+
+        {
+            var response = await _productService.SaveImageAsync(id, formFile);
+            if (response.Success)
+            {
+                return Ok(response);
+            }
+            return NotFound(response);
         }
 
         // GET: api/Products
@@ -44,19 +61,7 @@ namespace WEB_153502_KIRZNER.API.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            throw new NotImplementedException();
-            //if (_context.Products == null)
-            //{
-            //    return NotFound();
-            //}
-            //  var product = await _context.Products.FindAsync(id);
-
-            //  if (product == null)
-            //  {
-            //      return NotFound();
-            //  }
-
-            //  return product;
+            return Ok(await _productService.GetProductByIdAsync(id));
         }
 
         // PUT: api/Products/5
@@ -64,31 +69,8 @@ namespace WEB_153502_KIRZNER.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
-            throw new NotImplementedException();
-            //if (id != product.Id)
-            //{
-            //    return BadRequest();
-            //}
-
-            //_context.Entry(product).State = EntityState.Modified;
-
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!ProductExists(id))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-
-            //return NoContent();
+            await _productService.UpdateProductAsync(id, product);
+            return Ok();
         }
 
         // POST: api/Products
@@ -96,42 +78,15 @@ namespace WEB_153502_KIRZNER.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-            throw new NotImplementedException();
-            //  if (_context.Products == null)
-            //  {
-            //      return Problem("Entity set 'AppDbContext.Products'  is null.");
-            //  }
-            //    _context.Products.Add(product);
-            //    await _context.SaveChangesAsync();
-
-            //    return CreatedAtAction("GetProduct", new { id = product.Id }, product);
+            return Ok(await _productService.CreateProductAsync(product));
         }
 
-            // DELETE: api/Products/5
-            [HttpDelete("{id}")]
+        // DELETE: api/Products/5
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
-            //if (_context.Products == null)
-            //{
-            //    return NotFound();
-            //}
-            //var product = await _context.Products.FindAsync(id);
-            //if (product == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //_context.Products.Remove(product);
-            //await _context.SaveChangesAsync();
-
-            //return NoContent();
-            throw new NotImplementedException();
-        }
-
-        private bool ProductExists(int id)
-        {
-            //return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
-             throw new NotImplementedException();
+            await _productService.DeleteProductAsync(id);
+            return Ok();
         }
     }
 }

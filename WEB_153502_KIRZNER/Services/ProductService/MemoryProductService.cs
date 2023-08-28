@@ -34,7 +34,7 @@ namespace WEB_153502_KIRZNER.Services.ProductService
             throw new NotImplementedException();
         }
 
-        public Task<ResponseData<ProductListModel<Product>>> GetProductListAsync(string? categoryNormalizedName, int pageNo = 1)
+        public Task<ResponseData<ProductListModel<Product>>> GetProductListAsync(string? categoryNormalizedName = null, int pageNo = 1)
         {
             var products = _products.Where((product) => categoryNormalizedName == null || product.CategoryNormalizedName.Equals(categoryNormalizedName)).ToList();
          

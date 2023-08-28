@@ -10,7 +10,7 @@ using WEB_153502_KIRZNER.API.Data;
 namespace WEB_153502_KIRZNER.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230826233521_InitialCreate")]
+    [Migration("20230827141222_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

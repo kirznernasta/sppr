@@ -20,16 +20,16 @@ namespace WEB_153502_KIRZNER.API.Data
 
                 var products = new List<Product>
             {
-                new Product{Name = "Мячик Теннисный", Description = "Способствует развитию физической активности и челюстной мускулатуры", Price = 7.10, Image = "Images/ТеннисныйМяч.jpeg", CategoryNormalizedName = "toys"},
-                new Product{Name = "Плюшевый Мишка", Description = "Мягкая игрушка для собак в виде забавного медвежонка.", Price = 10.0, Image = "Images/ПлюшевыйМишка.jpeg", CategoryNormalizedName = "toys" },
-                new Product{Name = "Кормовая добавка", Description = "Предназначена для нормализации обмена веществ и поддержания иммунитета у собак", Price = 9.0, Image = "Images/ТаблеткиКруглые.jpeg", CategoryNormalizedName = "medicines"},
-                new Product{Name = "Пребиотик", Description = "Восстанавливает полезную микрофлору кишечника и укрепляет иммунитет", Price = 15.60, Image = "Images/ТаблеткиОвальные.jpeg", CategoryNormalizedName = "medicines"},
-                new Product{Name = "Плащ жёлтый", Description = "Удобный и функциональный аксессуар для собак, который просто незаменим в дождливую погоду", Price = 33.70, Image = "Images/ПлащЖёлтый.jpeg", CategoryNormalizedName = "clothes"},
-                new Product{Name = "Свитер розовый", Description = "Тёплый, удобный и функциональный аксессуар для собак, который просто незаменим в холодную погоду", Price = 28.70, Image = "Images/СвитерВязаныйРозовый.jpeg", CategoryNormalizedName = "clothes"},
-                new Product{Name = "Косточка из оленины", Description = "Косточка для чистки зубов из оленины", Price = 6.60, Image = "Images/Косточка.jpeg", CategoryNormalizedName = "food"},
-                new Product{Name = "Сухой корм для взрослых собак всех пород", Description = "Cодержит все белки, необходимые для развития мышц и тканей", Price = 185.20, Image = "Images/КормРазноцветный.jpeg", CategoryNormalizedName = "food"},
-                new Product{Name = "Ошейник голубой с подвеской", Description = "Надежный помощник в выгуле собак, регулируемый", Price = 12.20, Image = "Images/ОшейникГолубойСПодвеской.jpeg", CategoryNormalizedName = "collars"},
-                new Product{Name = "Ошейник зелёный с подвеской", Description = "Надежный помощник в выгуле собак, регулируемый", Price = 12.20, Image = "Images/ОшейникЗелёныйСПодвеской.jpeg", CategoryNormalizedName = "collars"},
+                new Product{Name = "Мячик Теннисный", Description = "Способствует развитию физической активности и челюстной мускулатуры", Price = 7.10, Image = imageUrlBase + "ТеннисныйМяч.jpeg", CategoryNormalizedName = "toys"},
+                new Product{Name = "Плюшевый Мишка", Description = "Мягкая игрушка для собак в виде забавного медвежонка.", Price = 10.0, Image = imageUrlBase + "ПлюшевыйМишка.jpeg", CategoryNormalizedName = "toys" },
+                new Product{Name = "Кормовая добавка", Description = "Предназначена для нормализации обмена веществ и поддержания иммунитета у собак", Price = 9.0, Image = imageUrlBase + "ТаблеткиКруглые.jpeg", CategoryNormalizedName = "medicines"},
+                new Product{Name = "Пребиотик", Description = "Восстанавливает полезную микрофлору кишечника и укрепляет иммунитет", Price = 15.60, Image = imageUrlBase + "ТаблеткиОвальные.jpeg", CategoryNormalizedName = "medicines"},
+                new Product{Name = "Плащ жёлтый", Description = "Удобный и функциональный аксессуар для собак, который просто незаменим в дождливую погоду", Price = 33.70, Image = imageUrlBase + "ПлащЖёлтый.jpeg", CategoryNormalizedName = "clothes"},
+                new Product{Name = "Свитер розовый", Description = "Тёплый, удобный и функциональный аксессуар для собак, который просто незаменим в холодную погоду", Price = 28.70, Image = imageUrlBase + "СвитерВязаныйРозовый.jpeg", CategoryNormalizedName = "clothes"},
+                new Product{Name = "Косточка из оленины", Description = "Косточка для чистки зубов из оленины", Price = 6.60, Image = imageUrlBase + "Косточка.jpeg", CategoryNormalizedName = "food"},
+                new Product{Name = "Сухой корм для взрослых собак всех пород", Description = "Cодержит все белки, необходимые для развития мышц и тканей", Price = 185.20, Image = imageUrlBase + "КормРазноцветный.jpeg", CategoryNormalizedName = "food"},
+                new Product{Name = "Ошейник голубой с подвеской", Description = "Надежный помощник в выгуле собак, регулируемый", Price = 12.20, Image = imageUrlBase + "ОшейникГолубойСПодвеской.jpeg", CategoryNormalizedName = "collars"},
+                new Product{Name = "Ошейник зелёный с подвеской", Description = "Надежный помощник в выгуле собак, регулируемый", Price = 12.20, Image = imageUrlBase + "ОшейникЗелёныйСПодвеской.jpeg", CategoryNormalizedName = "collars"},
             };
 
                 context.Products.AddRange(products);
