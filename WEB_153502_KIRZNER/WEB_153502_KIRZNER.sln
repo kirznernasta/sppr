@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_153502_KIRZNER.Domain",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_153502_KIRZNER.API", "..\WEB_153502_KIRZNER.API\WEB_153502_KIRZNER.API.csproj", "{98C21E0E-DDA6-41E9-B0C1-FAD8B6300545}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_153502_KIRZNER.IdentityServer", "..\WEB_153502_KIRZNER.IdentityServer\WEB_153502_KIRZNER.IdentityServer.csproj", "{6753A68E-9562-4DD3-BD85-A2921CD1F1D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{98C21E0E-DDA6-41E9-B0C1-FAD8B6300545}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98C21E0E-DDA6-41E9-B0C1-FAD8B6300545}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98C21E0E-DDA6-41E9-B0C1-FAD8B6300545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6753A68E-9562-4DD3-BD85-A2921CD1F1D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6753A68E-9562-4DD3-BD85-A2921CD1F1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6753A68E-9562-4DD3-BD85-A2921CD1F1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6753A68E-9562-4DD3-BD85-A2921CD1F1D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

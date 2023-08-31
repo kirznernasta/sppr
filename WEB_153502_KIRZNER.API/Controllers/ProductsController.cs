@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,7 @@ namespace WEB_153502_KIRZNER.API.Controllers
 
         // POST: api/Products/5
         [HttpPost("{id}")]
+        [Authorize]
         public async Task<ActionResult<ResponseData<string>>> PostImage(int id, IFormFile formFile)
 
         {
@@ -52,6 +54,7 @@ namespace WEB_153502_KIRZNER.API.Controllers
         [HttpGet("{category}/size{pageSize:int}")]
         [HttpGet("page{pageNo:int}/size{pageSize:int}")]
         [HttpGet("{category}/page{pageNo:int}/size{pageSize:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<ResponseData<List<Product>>>> GetProducts(string? category, int pageNo = 1, int pageSize = 3)
         {
             return Ok(await _productService.GetProductListAsync(category, pageNo, pageSize));
@@ -59,6 +62,7 @@ namespace WEB_153502_KIRZNER.API.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id:int}")]
+        [AllowAnonymous]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
             return Ok(await _productService.GetProductByIdAsync(id));
@@ -67,6 +71,7 @@ namespace WEB_153502_KIRZNER.API.Controllers
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
             await _productService.UpdateProductAsync(id, product);
@@ -76,6 +81,7 @@ namespace WEB_153502_KIRZNER.API.Controllers
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
             return Ok(await _productService.CreateProductAsync(product));
@@ -83,6 +89,7 @@ namespace WEB_153502_KIRZNER.API.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id:int}")]
+        [Authorize]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             await _productService.DeleteProductAsync(id);

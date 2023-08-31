@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using WEB_153502_KIRZNER.API.Data;
 using WEB_153502_KIRZNER.API.Services;
 
@@ -7,6 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
+
+builder.Services
+.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(opt =>
+{
+    opt.Authority = builder
+    .Configuration
+    .GetSection("isUri").Value;
+    opt.TokenValidationParameters.ValidateAudience = false;
+    opt.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
+});
 
 builder.Services.AddControllers();
 
@@ -33,6 +45,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllers();
 

@@ -1,44 +1,109 @@
-﻿<Properties StartupConfiguration="{7922D490-9BA8-4E36-9ADE-65B7B6094626}|https">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/_ViewImports.cshtml">
+﻿<Properties StartupConfiguration="Multiple Projects">
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../WEB_153502_KIRZNER.IdentityServer/HostingExtensions.cs">
     <Files>
-      <File FileName="Program.cs" Line="10" Column="65" />
-      <File FileName="Properties/launchSettings.json" />
-      <File FileName="Views/Shared/_MenuPartial.cshtml" />
-      <File FileName="Services/ProductService/IProductService.cs" Line="17" Column="1" />
-      <File FileName="Controllers/Product.cs" Line="36" Column="53" />
-      <File FileName="Views/_ViewImports.cshtml" Line="6" Column="1" />
+      <File FileName="Areas/Admin/Pages/Products/Create.cshtml" />
+      <File FileName="Areas/Admin/Pages/Products/Create.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Products/Index.cshtml" />
+      <File FileName="Services/ProductService/ApiProductService.cs" />
+      <File FileName="Views/Home/Index.cshtml" />
+      <File FileName="../WEB_153502_KIRZNER.API/Controllers/ProductsController.cs" />
+      <File FileName="../WEB_153502_KIRZNER.API/Services/ProductService.cs" />
+      <File FileName="../WEB_153502_KIRZNER.API/Services/IProductService.cs" />
+      <File FileName="../WEB_153502_KIRZNER.API/appsettings.json" Line="14" Column="37" />
+      <File FileName="../WEB_153502_KIRZNER.API/Program.cs" Line="48" Column="25" />
+      <File FileName="../WEB_153502_KIRZNER.API/Data/DbInitializer.cs" />
+      <File FileName="Areas/Admin/Pages/Products/Delete.cshtml" />
+      <File FileName="Areas/Admin/Pages/Products/Delete.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Products/Index.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Products/Details.cshtml" />
+      <File FileName="Areas/Admin/Pages/Products/Details.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Products/Edit.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Products/Edit.cshtml" />
+      <File FileName="../WEB_153502_KIRZNER.API/Services/CategoryService.cs" />
+      <File FileName="../WEB_153502_KIRZNER.API/Services/ICategoryService.cs" />
+      <File FileName="Views/Product/Index.cshtml" />
+      <File FileName="Program.cs" Line="35" Column="35" />
+      <File FileName="../WEB_153502_KIRZNER.API/Properties/launchSettings.json" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Properties/launchSettings.json" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/SeedData.cs" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Program.cs" Line="52" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Data/ApplicationDbContext.cs" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Data/Migrations/ApplicationDbContextModelSnapshot.cs" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Models/ApplicationUser.cs" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Config.cs" Line="40" Column="83" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/HostingExtensions.cs" Line="49" Column="17" />
+      <File FileName="appsettings.json" Line="17" Column="58" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Register/Index.cshtml.cs" Line="31" Column="57" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Login/Index.cshtml" Line="52" Column="62" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Register/Index.cshtml" Line="2" Column="78" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Login/Index.cshtml.cs" Line="28" Column="26" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Login/InputModel.cs" Line="1" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Login/LoginOptions.cs" Line="1" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Login/ViewModel.cs" Line="1" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Logout/LogoutOptions.cs" Line="1" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Logout/Index.cshtml.cs" Line="18" Column="51" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="WEB_153502_KIRZNER" expanded="True">
+          <Node name="WEB_153502_KIRZNER">
             <Node name="WEB_153502_KIRZNER">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="CategoryService" expanded="True" />
-                <Node name="ProductService" expanded="True" />
-              </Node>
-              <Node name="Views">
-                <Node name="Shared" expanded="True">
-                  <Node name="_MenuPartial.cshtml" selected="True" />
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Areas" expanded="True">
+                <Node name="Admin" expanded="True">
+                  <Node name="Pages" expanded="True">
+                    <Node name="Products" expanded="True" />
+                  </Node>
                 </Node>
               </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="Images" expanded="True" />
-              </Node>
             </Node>
-            <Node name="WEB_153502_KIRZNER.Domain">
-              <Node name="Entities" expanded="True" />
+            <Node name="WEB_153502_KIRZNER.API" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+            <Node name="WEB_153502_KIRZNER.IdentityServer" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Pages" expanded="True">
+                <Node name="Account" expanded="True">
+                  <Node name="Login" expanded="True">
+                    <Node name="Index.cshtml" expanded="True" />
+                  </Node>
+                  <Node name="Logout" expanded="True">
+                    <Node name="Index.cshtml" expanded="True" />
+                  </Node>
+                  <Node name="Register" expanded="True">
+                    <Node name="Index.cshtml" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="HostingExtensions.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.API FirstBuild="True" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{7922D490-9BA8-4E36-9ADE-65B7B6094626}" ItemName="WEB_153502_KIRZNER" ConfigurationId="https" />
+        <StartupItem ItemId="{98C21E0E-DDA6-41E9-B0C1-FAD8B6300545}" ItemName="WEB_153502_KIRZNER.API" ConfigurationId="https" />
+        <StartupItem ItemId="{6753A68E-9562-4DD3-BD85-A2921CD1F1D0}" ItemName="WEB_153502_KIRZNER.IdentityServer" ConfigurationId="SelfHost" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.IdentityServer PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

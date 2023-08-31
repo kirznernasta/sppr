@@ -1,4 +1,5 @@
-﻿using WEB_153502_KIRZNER.Helpers;
+﻿using Microsoft.AspNetCore.HttpOverrides;
+using WEB_153502_KIRZNER.Helpers;
 using WEB_153502_KIRZNER.Services.CategoryService;
 using WEB_153502_KIRZNER.Services.ProductService;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -13,6 +14,27 @@ builder.Services.AddControllersWithViews();
 // builder.Services.AddScoped<ICategoryService, MemoryCategoryService>();
 // builder.Services.AddScoped<IProductService, MemoryProductService>();
 
+builder.Services.AddAuthentication(opt =>
+{
+    opt.DefaultScheme = "cookie";
+    opt.DefaultChallengeScheme = "oidc";
+})
+    .AddCookie("cookie")
+    .AddOpenIdConnect("oidc", options =>
+    {
+        options.Authority =
+        builder.Configuration["InteractiveServiceSettings:AuthorityUrl"];
+        options.ClientId =
+        builder.Configuration["InteractiveServiceSettings:ClientId"];
+        options.ClientSecret =
+        builder.Configuration["InteractiveServiceSettings:ClientSecret"];
+        // Получить Claims пользователя
+        options.GetClaimsFromUserInfoEndpoint = true;
+        options.ResponseType = "code";
+        options.ResponseMode = "query";
+        options.SaveTokens = true;
+    });
+
 var configuration = builder.Configuration;
 
 var uriData = new UriData
@@ -21,8 +43,11 @@ var uriData = new UriData
     ISUri = configuration.GetSection("UriData").GetValue<string>("ISUri")!
 };
 
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddHttpClient<IProductService, ApiProductService>(opt =>opt.BaseAddress = new Uri(uriData.ApiUri));
 builder.Services.AddHttpClient<ICategoryService, ApiCategoryService>(opt =>opt.BaseAddress = new Uri(uriData.ApiUri));
+
 
 var app = builder.Build();
 
@@ -40,12 +65,14 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
+
+app.MapRazorPages().RequireAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.MapRazorPages();
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 app.Run();
 

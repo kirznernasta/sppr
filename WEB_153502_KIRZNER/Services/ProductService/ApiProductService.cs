@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using Azure.Core;
+using Microsoft.AspNetCore.Authentication;
 using WEB_153502_KIRZNER.Domain.Entities;
 using WEB_153502_KIRZNER.Domain.Models;
 using WEB_153502_KIRZNER.Services.CategoryService;
@@ -16,21 +18,27 @@ namespace WEB_153502_KIRZNER.Services.ProductService
         private int _pageSize;
         private JsonSerializerOptions _serializerOptions;
         private ILogger _logger;
+        private HttpContext _httpContext;
 
-		public ApiProductService(HttpClient httpClient, IConfiguration configuration, ILogger<ApiProductService> logger)
-		{
-            _httpClient = httpClient;
+		public ApiProductService(HttpClient client, IConfiguration configuration, ILogger<ApiProductService> logger, IHttpContextAccessor httpContextAccessor)
+        {
+            _httpClient = client;
             _pageSize = configuration.GetValue<int>("ItemsPerPage");
             _serializerOptions = new JsonSerializerOptions()
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
             _logger = logger;
+            _httpContext = httpContextAccessor.HttpContext;
         }
 
         public async Task<ResponseData<Product>> CreateProductAsync(Product product, IFormFile? formFile)
         {
             var urlString = new StringBuilder($"{_httpClient.BaseAddress!.AbsoluteUri}products/");
+
+            var token = await _httpContext.GetTokenAsync("access_token");
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+
             var response = await _httpClient.PostAsJsonAsync(urlString.ToString(), product, _serializerOptions);
 
             if (response.IsSuccessStatusCode)
@@ -63,12 +71,20 @@ namespace WEB_153502_KIRZNER.Services.ProductService
         public async Task DeleteProductAsync(int id)
         {
             var urlString = new StringBuilder($"{_httpClient.BaseAddress!.AbsoluteUri}products/{id}");
+
+            var token = await _httpContext.GetTokenAsync("access_token");
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+
             await _httpClient.DeleteAsync(urlString.ToString());
         }
 
         public async Task<ResponseData<Product>> GetProductByIdAsync(int id)
         {
             var urlString = new StringBuilder($"{_httpClient.BaseAddress!.AbsoluteUri}products/{id}");
+
+            var token = await _httpContext.GetTokenAsync("access_token");
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+
             var response = await _httpClient.GetFromJsonAsync<ResponseData<Product>>(urlString.ToString(), _serializerOptions);
             return response;
         }
@@ -90,6 +106,10 @@ namespace WEB_153502_KIRZNER.Services.ProductService
             {
                 urlString.Append($"size{_pageSize}");
             }
+
+            var token = await _httpContext.GetTokenAsync("access_token");
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+
             var response = await _httpClient.GetAsync(new Uri(urlString.ToString()));
 
             if (response.IsSuccessStatusCode)
@@ -121,6 +141,10 @@ namespace WEB_153502_KIRZNER.Services.ProductService
         public async Task UpdateProductAsync(int id, Product product, IFormFile? formFile)
         {
             var urlString = new StringBuilder($"{_httpClient.BaseAddress!.AbsoluteUri}products/{id}");
+
+            var token = await _httpContext.GetTokenAsync("access_token");
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+
             await _httpClient.PutAsJsonAsync(urlString.ToString(), product, _serializerOptions);
 
             if (formFile != null)
@@ -141,6 +165,10 @@ namespace WEB_153502_KIRZNER.Services.ProductService
             var streamContent = new StreamContent(image.OpenReadStream());
             content.Add(streamContent, "formFile", image.FileName);
             request.Content = content;
+
+            var token = await _httpContext.GetTokenAsync("access_token");
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
+
             await _httpClient.SendAsync(request);
         }
     }
