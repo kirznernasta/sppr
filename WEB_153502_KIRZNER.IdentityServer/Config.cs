@@ -46,7 +46,9 @@ public static class Config
                 PostLogoutRedirectUris = { "https://localhost:7001/signout-callback-oidc" },
 
                 AllowOfflineAccess = true,
-                AllowedScopes = { "openid", "profile", "api.read", "api.write" }
+                AllowedScopes = { "openid", "profile", "api.read", "api.write" },
+
+                 AllowedCorsOrigins = {"https://localhost:7001"},
             },
         };
 }

@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WEB_153502_KIRZNER.IdentityServer.Models;
 
@@ -28,20 +29,21 @@ namespace WEB_153502_KIRZNER.IdentityServer.Pages.Account.Register
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserStore<ApplicationUser> _userStore;
-        private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
+        private IWebHostEnvironment _environment;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
-            ILogger<RegisterModel> logger)
+            ILogger<RegisterModel> logger,
+            IWebHostEnvironment environment)
         {
             _userManager = userManager;
             _userStore = userStore;
-            _emailStore = GetEmailStore();
             _signInManager = signInManager;
             _logger = logger;
+            _environment = environment;
         }
 
         /// <summary>
@@ -96,12 +98,15 @@ namespace WEB_153502_KIRZNER.IdentityServer.Pages.Account.Register
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public IFormFile Image { get; set; }
         }
 
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            System.Diagnostics.Debug.WriteLine($"hfjka {returnUrl}");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -114,26 +119,20 @@ namespace WEB_153502_KIRZNER.IdentityServer.Pages.Account.Register
                 var user = CreateUser();
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
+                if (Input.Image != null)
+                {
+                    await SaveImageAsync(user.Id);
+                }
 
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    var userId = await _userManager.GetUserIdAsync(user);
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    
-                    if (_userManager.Options.SignIn.RequireConfirmedAccount)
-                    {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
-                    }
-                    else
-                    {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
-                    }
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return LocalRedirect(returnUrl);
+
                 }
                 foreach (var error in result.Errors)
                 {
@@ -159,13 +158,13 @@ namespace WEB_153502_KIRZNER.IdentityServer.Pages.Account.Register
             }
         }
 
-        private IUserEmailStore<ApplicationUser> GetEmailStore()
+        private async Task SaveImageAsync(string id)
         {
-            if (!_userManager.SupportsUserEmail)
-            {
-                throw new NotSupportedException("The default UI requires a user store with email support.");
-            }
-            return (IUserEmailStore<ApplicationUser>)_userStore;
+            var ext = Path.GetExtension(Input.Image.FileName);
+            var fileName = Path.ChangeExtension(id, ext);
+            var path = Path.Combine(_environment.ContentRootPath, "Images", fileName);
+            using var stream = System.IO.File.OpenWrite(path);
+            await Input.Image.CopyToAsync(stream);
         }
     }
 }

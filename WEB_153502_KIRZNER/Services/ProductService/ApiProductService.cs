@@ -145,6 +145,8 @@ namespace WEB_153502_KIRZNER.Services.ProductService
             var token = await _httpContext.GetTokenAsync("access_token");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
 
+            Debug.WriteLine($"TOKEN: {token}");
+
             await _httpClient.PutAsJsonAsync(urlString.ToString(), product, _serializerOptions);
 
             if (formFile != null)

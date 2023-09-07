@@ -24,8 +24,12 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="Pages\Account\Register\" />
+	  <None Remove="Images\" />
+	  <None Remove="Controllers\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Pages\Account\Register\" />
+	  <Folder Include="Images\" />
+	  <Folder Include="Controllers\" />
 	</ItemGroup>
 </Project>

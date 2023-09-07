@@ -4,6 +4,7 @@ using WEB_153502_KIRZNER.IdentityServer.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace WEB_153502_KIRZNER.IdentityServer;
 
@@ -43,6 +44,8 @@ internal static class HostingExtensions
             .AddInMemoryClients(Config.Clients)
             .AddAspNetIdentity<ApplicationUser>();
 
+        builder.Services.AddControllers();
+
         builder.Services.AddAuthentication()
             .AddGoogle(options =>
             {
@@ -70,7 +73,10 @@ internal static class HostingExtensions
         app.UseStaticFiles();
         app.UseRouting();
         app.UseIdentityServer();
+        app.UseAuthentication();
         app.UseAuthorization();
+
+        app.MapControllers();
         
         app.MapRazorPages()
             .RequireAuthorization();

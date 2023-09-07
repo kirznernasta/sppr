@@ -19,7 +19,11 @@ builder.Services.AddAuthentication(opt =>
     opt.DefaultScheme = "cookie";
     opt.DefaultChallengeScheme = "oidc";
 })
-    .AddCookie("cookie")
+    .AddCookie("cookie", options =>
+    {
+        options.Cookie.SameSite = SameSiteMode.None;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+    })
     .AddOpenIdConnect("oidc", options =>
     {
         options.Authority =
@@ -32,6 +36,8 @@ builder.Services.AddAuthentication(opt =>
         options.GetClaimsFromUserInfoEndpoint = true;
         options.ResponseType = "code";
         options.ResponseMode = "query";
+        options.Scope.Add("api.read");
+        options.Scope.Add("api.write");
         options.SaveTokens = true;
     });
 
@@ -64,8 +70,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapRazorPages().RequireAuthorization();
 

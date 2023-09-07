@@ -2,6 +2,7 @@ using WEB_153502_KIRZNER.IdentityServer;
 using Serilog;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.HttpOverrides;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -12,6 +13,18 @@ Log.Information("Starting up");
 try
 {
     var builder = WebApplication.CreateBuilder(args);
+
+
+    builder.Services.AddAuthentication(opt =>
+    {
+        opt.DefaultScheme = "cookie";
+        opt.DefaultChallengeScheme = "oidc";
+    }).AddCookie("cookie", options =>
+    {
+            options.Cookie.SameSite = SameSiteMode.None;
+            options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+     });
+
 
     builder.Host.UseSerilog((ctx, lc) => lc
         .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}")
@@ -26,12 +39,11 @@ try
     // in production you will likely want a different approach.
     //if (args.Contains("/seed"))
     //{
-        Log.Information("Seeding database...");
+    Log.Information("Seeding database...");
         SeedData.EnsureSeedData(app);
         Log.Information("Done seeding database. Exiting.");
     //    return;
     //}
-
     app.Run();
 }
 catch (Exception ex) when (
