@@ -22,6 +22,8 @@
     <None Remove="Areas\Admin\" />
     <None Remove="Areas\Admin\Pages\" />
     <None Remove="Areas\Admin\Pages\Products\" />
+    <None Remove="TagHelpers\" />
+    <None Remove="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -39,6 +41,8 @@
     <Folder Include="Areas\Admin\" />
     <Folder Include="Areas\Admin\Pages\" />
     <Folder Include="Areas\Admin\Pages\Products\" />
+    <Folder Include="TagHelpers\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images\" />

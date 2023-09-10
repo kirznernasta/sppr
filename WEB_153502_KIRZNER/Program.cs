@@ -2,9 +2,12 @@
 using WEB_153502_KIRZNER.Helpers;
 using WEB_153502_KIRZNER.Services.CategoryService;
 using WEB_153502_KIRZNER.Services.ProductService;
+using WEB_153502_KIRZNER.TagHelpers;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<PagerTagHelper>();
 
 builder.Services.AddRazorPages();
 

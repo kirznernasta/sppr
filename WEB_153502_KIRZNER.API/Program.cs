@@ -18,6 +18,7 @@ builder.Services
     .GetSection("isUri").Value;
     opt.TokenValidationParameters.ValidateAudience = false;
     opt.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
+    opt.IncludeErrorDetails = true;
 });
 
 builder.Services.AddControllers();
@@ -44,8 +45,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseAuthorization();
+
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

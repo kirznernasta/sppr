@@ -48,7 +48,7 @@ public static class Config
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "api.read", "api.write" },
 
-                 AllowedCorsOrigins = {"https://localhost:7001"},
+                 
             },
         };
 }

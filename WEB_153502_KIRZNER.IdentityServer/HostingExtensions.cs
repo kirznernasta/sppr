@@ -70,6 +70,14 @@ internal static class HostingExtensions
             app.UseDeveloperExceptionPage();
         }
 
+        app.UseCors(cors =>
+        {
+            cors.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+          
+        });
+
         app.UseStaticFiles();
         app.UseRouting();
         app.UseIdentityServer();

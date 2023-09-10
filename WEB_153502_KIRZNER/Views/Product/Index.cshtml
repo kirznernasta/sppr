@@ -8,9 +8,6 @@
     var request = ViewContext.HttpContext.Request;
     var returnUrl = request.Path + request.QueryString.ToUriComponent();
     var categories = ViewData["categories"] as List<Category>;
-
-    int prev = Model.CurrentPage == 1 ? 1 : Model.CurrentPage - 1;
-    int next = Model.CurrentPage == Model.TotalPages ? Model.TotalPages : Model.CurrentPage + 1;
 }
 
 <div class="d-flex align-items-center justify-content-start mb-2">
@@ -40,52 +37,4 @@
     </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    @foreach (var item in Model.Items)
-    {
-        <div class="card mb-3 me-2">
-            <img src="@item.Image" class="card-img-top" alt="Image">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">@item.Name</h5>
-                <p class="card-text">@item.Description</p>
-                <div class="text-center mt-auto">
-                    <a asp-controller="cart" asp-action="Add" asp-route-id="@item.Id" asp-route-returnUrl="@returnUrl" class="btn btn-primary text-white">Добавить в корзину <i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-            </div>
-        </div>
-    }
-</div>
-
-<nav>
-    <ul class="pagination justify-content-center">
-        <li class="page-item @(Model.CurrentPage==1?"disabled":"active")">
-            <a asp-controller="product" asp-route-pageNo="@prev" class="page-link">&laquo;</a>
-        </li>
-        @for (var num = 1; num <= Model.TotalPages; num += 1)
-        {
-            <li class="page-item @(num.Equals(Model.CurrentPage)  ? "active" : "")"><a class="page-link" asp-controller="product" asp-route-pageNo="@num">@num</a></li>
-        }
-        <li class="page-item @(Model.CurrentPage==Model.TotalPages?"disabled":"active")">
-            <a class="page-link" asp-controller="product" asp-route-pageNo="@next">&raquo;</a>
-        </li>
-    </ul>
-</nav>
-
-<style>
-    .card {
-        width: 32%;
-    }
-
-    .card-img-top {
-        height: 200px;
-        object-fit: contain;
-    }
-    .page-item.active .page-link {
-        background-color: cornflowerblue;
-        border-color: cornflowerblue;
-    }
-    .page-link {
-        color: cornflowerblue;
-    }
-</style>
-
+<partial name="_ListPartial"/>

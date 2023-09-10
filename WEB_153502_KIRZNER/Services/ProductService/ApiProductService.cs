@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
+using Azure;
 using Azure.Core;
 using Microsoft.AspNetCore.Authentication;
 using WEB_153502_KIRZNER.Domain.Entities;
@@ -73,9 +74,17 @@ namespace WEB_153502_KIRZNER.Services.ProductService
             var urlString = new StringBuilder($"{_httpClient.BaseAddress!.AbsoluteUri}products/{id}");
 
             var token = await _httpContext.GetTokenAsync("access_token");
+            Debug.WriteLine($"-----------------> token: {token}");
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
 
-            await _httpClient.DeleteAsync(urlString.ToString());
+             var response = await _httpClient.DeleteAsync(urlString.ToString());
+
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogError($"----->Книга с таким Id отсутствует. Error:{response.Headers}");
+            }
+
+            
         }
 
         public async Task<ResponseData<Product>> GetProductByIdAsync(int id)
