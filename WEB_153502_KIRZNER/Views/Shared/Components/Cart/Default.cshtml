@@ -1,4 +1,7 @@
-﻿<a class="navbar-text ms-auto" asp-controller="cart" asp-action="Index">
-    00,0 руб <i class="fa-solid fa-cart-shopping"></i> (0)
+﻿@using WEB_153502_KIRZNER.Domain.Entities
+@model Cart
+
+<a class="navbar-text ms-auto" asp-controller="cart" asp-action="Index">
+    @Math.Round(@Model.TotalPrice, 2) руб <i class="fa-solid fa-cart-shopping"></i> (@Model.Count)
 </a>
 

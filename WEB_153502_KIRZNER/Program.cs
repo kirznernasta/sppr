@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.HttpOverrides;
+using WEB_153502_KIRZNER.Domain.Entities;
 using WEB_153502_KIRZNER.Helpers;
+using WEB_153502_KIRZNER.Services.CartService;
 using WEB_153502_KIRZNER.Services.CategoryService;
 using WEB_153502_KIRZNER.Services.ProductService;
 using WEB_153502_KIRZNER.TagHelpers;
@@ -44,6 +46,9 @@ builder.Services.AddAuthentication(opt =>
         options.SaveTokens = true;
     });
 
+builder.Services.AddDistributedMemoryCache();
+
+
 var configuration = builder.Configuration;
 
 var uriData = new UriData
@@ -53,9 +58,13 @@ var uriData = new UriData
 };
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 
 builder.Services.AddHttpClient<IProductService, ApiProductService>(opt =>opt.BaseAddress = new Uri(uriData.ApiUri));
 builder.Services.AddHttpClient<ICategoryService, ApiCategoryService>(opt =>opt.BaseAddress = new Uri(uriData.ApiUri));
+
+builder.Services.AddScoped(SessionCart.GetCart);
 
 
 var app = builder.Build();
@@ -67,6 +76,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseSession();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

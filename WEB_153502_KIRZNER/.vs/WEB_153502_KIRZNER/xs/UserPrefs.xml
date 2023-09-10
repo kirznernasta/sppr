@@ -1,53 +1,5 @@
 ﻿<Properties StartupConfiguration="Multiple Projects">
   <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.IdentityServer PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../WEB_153502_KIRZNER.API/Program.cs">
-    <Files>
-      <File FileName="../WEB_153502_KIRZNER.API/Services/ProductService.cs" Line="174" Column="1" />
-      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Register/Index.cshtml.cs" />
-      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Pages/Account/Register/Index.cshtml" />
-      <File FileName="../WEB_153502_KIRZNER.IdentityServer/HostingExtensions.cs" Line="78" Column="11" />
-      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Controllers/AvatarController.cs" />
-      <File FileName="ViewComponents/CartViewComponent.cs" />
-      <File FileName="Views/Shared/Components/Cart/Default.cshtml" />
-      <File FileName="Controllers/IdentityController.cs" />
-      <File FileName="Views/Shared/_UserInfoPartial.cshtml" />
-      <File FileName="Views/Shared/_Layout.cshtml" />
-      <File FileName="Views/Product/Index.cshtml" Line="57" Column="7" />
-      <File FileName="TagHelpers/PagerTagHelper.cs" Line="76" Column="122" />
-      <File FileName="Program.cs" Line="52" Column="1" />
-      <File FileName="Views/_ViewImports.cshtml" Line="5" Column="36" />
-      <File FileName="Views/_ViewStart.cshtml" Line="1" Column="1" />
-      <File FileName="Areas/Admin/Pages/Products/Index.cshtml" Line="65" Column="7" />
-      <File FileName="Controllers/Product.cs" Line="36" Column="17" />
-      <File FileName="Services/ProductService/ApiProductService.cs" Line="82" Column="1" />
-      <File FileName="../WEB_153502_KIRZNER.API/Program.cs" Line="49" Column="25" />
-      <File FileName="../WEB_153502_KIRZNER.API/Controllers/ProductsController.cs" Line="1" Column="1" />
-      <File FileName="../WEB_153502_KIRZNER.API/appsettings.json" Line="1" Column="1" />
-      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Config.cs" Line="51" Column="18" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="WEB_153502_KIRZNER">
-            <Node name="WEB_153502_KIRZNER">
-              <Node name="TagHelpers" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="Product" expanded="True" />
-                <Node name="Shared" expanded="True" />
-              </Node>
-            </Node>
-            <Node name="WEB_153502_KIRZNER.API" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Services" expanded="True" />
-            </Node>
-            <Node name="WEB_153502_KIRZNER.IdentityServer" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
       <Items>
@@ -58,8 +10,65 @@
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../WEB_153502_KIRZNER.Domain/Entities/Cart.cs">
+    <Files>
+      <File FileName="Views/Product/Index.cshtml" Line="22" Column="11" />
+      <File FileName="TagHelpers/PagerTagHelper.cs" Line="77" Column="1" />
+      <File FileName="Areas/Admin/Pages/Products/Index.cshtml" Line="13" Column="7" />
+      <File FileName="Areas/Admin/Pages/Products/_ViewImports.cshtml" Line="7" Column="1" />
+      <File FileName="Program.cs" Line="74" Column="18" />
+      <File FileName="Areas/Admin/Pages/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="wwwroot/js/site.js" Line="11" Column="4" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="18" Column="47" />
+      <File FileName="Controllers/Product.cs" Line="59" Column="26" />
+      <File FileName="../WEB_153502_KIRZNER.Domain/Models/ProductListModel.cs" Line="9" Column="6" />
+      <File FileName="Views/Shared/_ListPartial.cshtml" Line="13" Column="43" />
+      <File FileName="Views/Shared/_MenuPartial.cshtml" Line="14" Column="1" />
+      <File FileName="Views/Shared/_UserInfoPartial.cshtml" Line="1" Column="1" />
+      <File FileName="Views/_ViewStart.cshtml" Line="1" Column="1" />
+      <File FileName="Controllers/CartController.cs" Line="25" Column="32" />
+      <File FileName="../WEB_153502_KIRZNER.Domain/Entities/CartItem.cs" Line="6" Column="39" />
+      <File FileName="../WEB_153502_KIRZNER.Domain/Entities/Cart.cs" Line="29" Column="31" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="WEB_153502_KIRZNER">
+            <Node name="WEB_153502_KIRZNER" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Extensions" expanded="True" />
+              <Node name="TagHelpers" expanded="True" />
+              <Node name="ViewComponents" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Product" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="js" expanded="True" />
+                <Node name="lib" expanded="True">
+                  <Node name="jquery" expanded="True">
+                    <Node name="dist" expanded="True">
+                      <Node name="jquery.js" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node name="WEB_153502_KIRZNER.Domain">
+              <Node name="Entities" expanded="True">
+                <Node name="Cart.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.IdentityServer PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

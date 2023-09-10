@@ -24,6 +24,8 @@
     <None Remove="Areas\Admin\Pages\Products\" />
     <None Remove="TagHelpers\" />
     <None Remove="Extensions\" />
+    <None Remove="Services\CartService\" />
+    <None Remove="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -43,6 +45,8 @@
     <Folder Include="Areas\Admin\Pages\Products\" />
     <Folder Include="TagHelpers\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Services\CartService\" />
+    <Folder Include="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\Images\" />
