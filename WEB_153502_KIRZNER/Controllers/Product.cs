@@ -10,7 +10,6 @@ using WEB_153502_KIRZNER.Domain.Models;
 using WEB_153502_KIRZNER.Extensions;
 using WEB_153502_KIRZNER.Services.CategoryService;
 using WEB_153502_KIRZNER.Services.ProductService;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,46 +27,17 @@ namespace WEB_153502_KIRZNER.Controllers
             _categoryService = categoryService;
         }
 
-
-        public async Task<IActionResult> Index(int pageNo = 1)
+        [Route("{category?}")]
+        public async Task<IActionResult> Index(string? category, int pageNo = 1)
         {
             var categoryResponse = await _categoryService.GetCategoryListAsync();
-            if (categoryResponse.Success)
+            if (!categoryResponse.Success)
             {
-                ViewData["categories"] = categoryResponse.Data;
-            }
-            ViewData["currentCategory"] = "Все";
-
-            var productResponse = await _productService.GetProductListAsync(null, pageNo);
-
-
-            if (!productResponse.Success)
-            {
-                return NotFound(productResponse.ErrorMessage);
+                return NotFound(categoryResponse.ErrorMessage);
             }
 
-            var data = productResponse.Data;
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView("_ListPartial", data);
-            }
-            return View(data);
-        }
-
-
-        [Route("{category}")]
-        public async Task<IActionResult> Index(string category, int pageNo = 1)
-        {
-            var categoryResponse = await _categoryService.GetCategoryListAsync();
-            if (categoryResponse.Success)
-            {
-                ViewData["categories"] = categoryResponse.Data;
-                ViewData["currentCategory"] = categoryResponse.Data.First((c) => c.NormalizedName.Equals(category)).Name;
-            }
-            else
-            {
-                return NotFound("Ошибка: нет такой категории");
-            }
+            ViewData["categories"] = categoryResponse.Data;
+            ViewData["currentCategory"] = category == null ? "Все" : categoryResponse.Data!.FirstOrDefault((c) => c.NormalizedName.Equals(category))?.Name;
 
             var productResponse = await _productService.GetProductListAsync(category, pageNo);
             
