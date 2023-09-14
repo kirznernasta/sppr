@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.HttpOverrides;
+﻿using System.Diagnostics;
+using Microsoft.AspNetCore.HttpOverrides;
+using Serilog;
+using Serilog.Events;
+using WEB_153502_KIRZNER;
 using WEB_153502_KIRZNER.Domain.Entities;
 using WEB_153502_KIRZNER.Helpers;
 using WEB_153502_KIRZNER.Services.CartService;
@@ -66,6 +70,18 @@ builder.Services.AddHttpClient<ICategoryService, ApiCategoryService>(opt =>opt.B
 
 builder.Services.AddScoped(SessionCart.GetCart);
 
+builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
+    loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration).Filter.ByIncludingOnly(evt =>
+    {
+        if (evt.Properties.TryGetValue("StatusCode", out var statusCodeValue) &&
+            statusCodeValue is ScalarValue statusCodeScalar &&
+            statusCodeScalar.Value is int statusCode)
+        {
+            Debug.WriteLine("QWERTYUIOP");
+            return statusCode < 200 || statusCode >= 300;
+        }
+        return false;
+    }));
 
 var app = builder.Build();
 
@@ -76,6 +92,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseLoggingMiddleware();
 
 app.UseSession();
 
