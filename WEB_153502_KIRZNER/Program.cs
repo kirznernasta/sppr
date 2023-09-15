@@ -77,7 +77,6 @@ builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
             statusCodeValue is ScalarValue statusCodeScalar &&
             statusCodeScalar.Value is int statusCode)
         {
-            Debug.WriteLine("QWERTYUIOP");
             return statusCode < 200 || statusCode >= 300;
         }
         return false;

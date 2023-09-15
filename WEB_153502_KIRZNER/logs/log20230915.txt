@@ -1,1 +1,10 @@
-2023-09-15 01:23:14.420 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-15 12:23:40.370 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-15 12:23:50.249 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-15 12:23:57.140 +03:00 [INF] ---> request /identity/Logout returns 302
+2023-09-15 12:23:59.659 +03:00 [INF] ---> request /signout-callback-oidc returns 302
+2023-09-15 12:23:59.698 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-15 12:24:04.180 +03:00 [INF] ---> request /identity/Login returns 302
+2023-09-15 12:24:06.153 +03:00 [INF] ---> request /signin-oidc returns 302
+2023-09-15 12:24:06.169 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-15 12:34:06.974 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-15 12:34:17.536 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404

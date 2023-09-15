@@ -1,45 +1,76 @@
 ﻿<Properties StartupConfiguration="Multiple Projects">
-  <MonoDevelop.Ide.Workbench ActiveDocument="../WEB_153502_KIRZNER.Tests/ApiProductServiceTests.cs">
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.BlazorWasm PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.IdentityServer PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../WEB_153502_KIRZNER.IdentityServer/Config.cs">
     <Files>
-      <File FileName="../WEB_153502_KIRZNER.Tests/UnitTest1.cs" />
-      <File FileName="Services/ProductService/MemoryProductService.cs" />
-      <File FileName="../WEB_153502_KIRZNER.Tests/ProductControllerTests.cs" />
-      <File FileName="../WEB_153502_KIRZNER.Tests/ApiProductServiceTests.cs" Line="15" Column="14" />
-      <File FileName="../WEB_153502_KIRZNER.API/Services/ProductService.cs" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/wwwroot/appsettings.json" Line="9" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/App.razor" Line="27" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Config.cs" Line="58" Column="66" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Properties/launchSettings.json" Line="1" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Pages/FetchData.razor" Line="1" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Shared/NavMenu.razor" Line="28" Column="7" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Program.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="WEB_153502_KIRZNER">
-            <Node name="WEB_153502_KIRZNER.API" expanded="True">
+          <Node name="WEB_153502_KIRZNER" selected="True">
+            <Node name="WEB_153502_KIRZNER">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Services" expanded="True">
+                <Node name="ProductService" expanded="True" />
+              </Node>
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+            <Node name="WEB_153502_KIRZNER.API">
               <Node name="Services" expanded="True" />
             </Node>
-            <Node name="WEB_153502_KIRZNER.Domain" expanded="True">
+            <Node name="WEB_153502_KIRZNER.BlazorWasm">
+              <Node name="Pages" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Shared" expanded="True">
+                <Node name="NavMenu.razor" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="appsettings.json" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="WEB_153502_KIRZNER.Domain">
               <Node name="Models" expanded="True" />
             </Node>
-            <Node name="WEB_153502_KIRZNER.Tests" expanded="True">
-              <Node name="ApiProductServiceTests.cs" selected="True" />
+            <Node name="WEB_153502_KIRZNER.IdentityServer" expanded="True" />
+            <Node name="WEB_153502_KIRZNER.Tests">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="WEB_153502_KIRZNER" selected="True" />
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.IdentityServer PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
       <Items>
         <StartupItem ItemId="{7922D490-9BA8-4E36-9ADE-65B7B6094626}" ItemName="WEB_153502_KIRZNER" ConfigurationId="https" />
         <StartupItem ItemId="{98C21E0E-DDA6-41E9-B0C1-FAD8B6300545}" ItemName="WEB_153502_KIRZNER.API" ConfigurationId="https" />
+        <StartupItem ItemId="{B16E25B7-32E5-4486-8546-7B2DAF1E9804}" ItemName="WEB_153502_KIRZNER.BlazorWasm" ConfigurationId="https" />
         <StartupItem ItemId="{6753A68E-9562-4DD3-BD85-A2921CD1F1D0}" ItemName="WEB_153502_KIRZNER.IdentityServer" ConfigurationId="SelfHost" />
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

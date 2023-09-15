@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_153502_KIRZNER.Identity
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_153502_KIRZNER.Tests", "..\WEB_153502_KIRZNER.Tests\WEB_153502_KIRZNER.Tests.csproj", "{73D0682A-2359-4013-92BE-62B21ABE8EE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_153502_KIRZNER.BlazorWasm", "..\WEB_153502_KIRZNER.BlazorWasm\WEB_153502_KIRZNER.BlazorWasm.csproj", "{B16E25B7-32E5-4486-8546-7B2DAF1E9804}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{73D0682A-2359-4013-92BE-62B21ABE8EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73D0682A-2359-4013-92BE-62B21ABE8EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73D0682A-2359-4013-92BE-62B21ABE8EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B16E25B7-32E5-4486-8546-7B2DAF1E9804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B16E25B7-32E5-4486-8546-7B2DAF1E9804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B16E25B7-32E5-4486-8546-7B2DAF1E9804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B16E25B7-32E5-4486-8546-7B2DAF1E9804}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
