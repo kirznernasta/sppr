@@ -87,7 +87,7 @@ namespace WEB_153502_KIRZNER.Services.ProductService
             
         }
 
-        public async Task<ResponseData<Product>> GetProductByIdAsync(int id)
+        public async Task<ResponseData<Product?>> GetProductByIdAsync(int id)
         {
             var urlString = new StringBuilder($"{_httpClient.BaseAddress!.AbsoluteUri}products/{id}");
 

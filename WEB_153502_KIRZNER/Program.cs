@@ -1,15 +1,11 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.HttpOverrides;
-using Serilog;
+﻿using Serilog;
 using Serilog.Events;
 using WEB_153502_KIRZNER;
-using WEB_153502_KIRZNER.Domain.Entities;
 using WEB_153502_KIRZNER.Helpers;
 using WEB_153502_KIRZNER.Services.CartService;
 using WEB_153502_KIRZNER.Services.CategoryService;
 using WEB_153502_KIRZNER.Services.ProductService;
 using WEB_153502_KIRZNER.TagHelpers;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 var builder = WebApplication.CreateBuilder(args);
 

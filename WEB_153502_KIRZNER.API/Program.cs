@@ -31,6 +31,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpContextAccessor();
 
+
+builder.Services.AddCors(options => options.AddPolicy("Cors",
+            builder =>
+            {
+                builder.
+                AllowAnyOrigin().
+                AllowAnyMethod().
+                AllowAnyHeader();
+            }));
+
 var app = builder.Build();
 
 DbInitializer.SeedData(app).GetAwaiter().GetResult();

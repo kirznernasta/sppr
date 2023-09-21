@@ -1,63 +1,50 @@
 ﻿<Properties StartupConfiguration="Multiple Projects">
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.BlazorWasm PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.blazor.Server FirstBuild="True" PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.blazor.Client FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.IdentityServer PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../WEB_153502_KIRZNER.IdentityServer/Config.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../WEB_153502_KIRZNER.BlazorWasm/Pages/FetchData.razor">
     <Files>
-      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/wwwroot/appsettings.json" Line="9" Column="1" />
-      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/App.razor" Line="27" Column="1" />
-      <File FileName="../WEB_153502_KIRZNER.IdentityServer/Config.cs" Line="58" Column="66" />
-      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Properties/launchSettings.json" Line="1" Column="1" />
-      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Pages/FetchData.razor" Line="1" Column="1" />
-      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Shared/NavMenu.razor" Line="28" Column="7" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/wwwroot/appsettings.json" Line="8" Column="16" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Services/DataService.cs" Line="13" Column="6" />
+      <File FileName="appsettings.json" Line="9" Column="21" />
+      <File FileName="Services/ProductService/ApiProductService.cs" Line="146" Column="15" />
       <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Program.cs" Line="1" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Pages/FetchData.razor" Line="27" Column="17" />
+      <File FileName="Services/CategoryService/ApiCategoryService.cs" Line="55" Column="15" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/Services/IDataService.cs" Line="22" Column="29" />
+      <File FileName="../WEB_153502_KIRZNER.API/Program.cs" Line="46" Column="1" />
+      <File FileName="../WEB_153502_KIRZNER.BlazorWasm/_Imports.razor" Line="12" Column="46" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="WEB_153502_KIRZNER" selected="True">
+          <Node name="WEB_153502_KIRZNER">
             <Node name="WEB_153502_KIRZNER">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-              <Node name="Services" expanded="True">
-                <Node name="ProductService" expanded="True" />
+              <Node name="Services">
+                <Node name="CategoryService" expanded="True" />
               </Node>
               <Node name="appsettings.json" expanded="True" />
             </Node>
-            <Node name="WEB_153502_KIRZNER.API">
-              <Node name="Services" expanded="True" />
-            </Node>
+            <Node name="WEB_153502_KIRZNER.API" expanded="True" />
             <Node name="WEB_153502_KIRZNER.BlazorWasm">
-              <Node name="Pages" expanded="True" />
-              <Node name="Properties" expanded="True" />
-              <Node name="Shared" expanded="True">
-                <Node name="NavMenu.razor" expanded="True" />
+              <Node name="Pages">
+                <Node name="FetchData.razor" selected="True" />
               </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="appsettings.json" expanded="True" />
-              </Node>
+              <Node name="Services" expanded="True" />
+              <Node name="wwwroot" expanded="True" />
             </Node>
-            <Node name="WEB_153502_KIRZNER.Domain">
-              <Node name="Models" expanded="True" />
-            </Node>
-            <Node name="WEB_153502_KIRZNER.IdentityServer" expanded="True" />
-            <Node name="WEB_153502_KIRZNER.Tests">
-              <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-            </Node>
+            <Node name="WEB_153502_KIRZNER.Domain" expanded="True" />
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="WEB_153502_KIRZNER" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations>
     <MultiItemSolutionRunConfiguration Id="Multiple Projects" Name="Multiple Projects">
       <Items>
@@ -68,9 +55,6 @@
       </Items>
     </MultiItemSolutionRunConfiguration>
   </MultiItemStartupConfigurations>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.WEB__153502__KIRZNER.BlazorWasm PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>

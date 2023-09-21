@@ -1,47 +1,41 @@
-﻿@page "/fetchdata"
+﻿@using WEB_153502_KIRZNER.Domain.Entities
+
+@page "/fetchdata"
 @inject HttpClient Http
+@inject IDataService dataService
 
 <PageTitle>Weather forecast</PageTitle>
 
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
-
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
+  <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>Название</th>
+                <th>Описание</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var product in products)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
                 </tr>
             }
         </tbody>
     </table>
-}
 
 @code {
     private WeatherForecast[]? forecasts;
+    private List<Product> products;
 
     protected override async Task OnInitializedAsync()
     {
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        await dataService.GetProductListAsync(null, 1);
+        products = dataService.ObjectsList;
     }
 
     public class WeatherForecast

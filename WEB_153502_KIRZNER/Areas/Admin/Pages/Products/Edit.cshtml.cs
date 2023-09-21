@@ -55,30 +55,7 @@ namespace WEB_153502_KIRZNER.Areas.Admin.Pages.Products
 
             await _productService.UpdateProductAsync(Product.Id, Product, Image);
 
-            //_context.Attach(Product).State = EntityState.Modified;
-
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!ProductExists(Product.Id))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-
             return RedirectToPage("./Index");
         }
-
-        //private bool ProductExists(int id)
-        //{
-        //  return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
-        //}
     }
 }

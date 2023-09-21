@@ -54,8 +54,8 @@ public static class Config
                 ClientId = "blazorApp",
                 AllowedGrantTypes = GrantTypes.Code,
                 RequireClientSecret = false,
-                RedirectUris = {"https://localhost:7126/authentication/login-callback" },
-                PostLogoutRedirectUris = {"https://localhost:7126/authentication/logout-callback" },
+                RedirectUris = {"https://localhost:7238/authentication/login-callback" },
+                PostLogoutRedirectUris = {"https://localhost:7238/authentication/logout-callback" },
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "api.read","api.write"},
             }
