@@ -1,0 +1,9 @@
+2023-09-24 09:32:51.474 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-24 09:34:38.594 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-24 09:41:43.379 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-24 09:42:10.281 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-24 09:46:25.783 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-24 09:46:55.380 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-24 12:21:51.010 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-24 12:22:16.261 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404
+2023-09-24 14:37:07.415 +03:00 [INF] ---> request /WEB_KIRZNER_153502.styles.css returns 404

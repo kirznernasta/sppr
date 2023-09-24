@@ -54,7 +54,7 @@ namespace WEB_153502_KIRZNER.API.Controllers
         [HttpGet("{category}/size{pageSize:int}")]
         [HttpGet("page{pageNo:int}/size{pageSize:int}")]
         [HttpGet("{category}/page{pageNo:int}/size{pageSize:int}")]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<ActionResult<ResponseData<List<Product>>>> GetProducts(string? category, int pageNo = 1, int pageSize = 3)
         {
             return Ok(await _productService.GetProductListAsync(category, pageNo, pageSize));
@@ -62,7 +62,7 @@ namespace WEB_153502_KIRZNER.API.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id:int}")]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
             return Ok(await _productService.GetProductByIdAsync(id));

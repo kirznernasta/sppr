@@ -5,6 +5,8 @@ namespace WEB_153502_KIRZNER.BlazorWasm.Services
 {
 	public interface IDataService
 	{
+        event Action DataLoaded;
+
         List<Category> Categories { get; set; }
 
         List<Product> ObjectsList { get; set; }
