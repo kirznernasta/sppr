@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Authorization
 @using WEB_153502_KIRZNER.BlazorWasm.Pages
+@using WEB_153502_KIRZNER.Domain.Entities
 
 @page "/fetchdata"
 @page "/fetchdata/{category}"
@@ -16,9 +17,11 @@
 
 <CategorySelector SelectedCategory="@SelectedName" />
 
-<ProductsList/>
+<ProductsList onButtonClicked="@FindProduct"/>
 
-<Pager Category="@Category"/>
+<Pager Category="@Category" />
+
+<ProductDetail SelectedProduct="@SelectedProduct"/>
 
 @code {
     [Inject]
@@ -28,6 +31,8 @@
     public string Category { get; set; }
 
     public string SelectedName { get; set; }
+
+    public Product? SelectedProduct { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
@@ -40,5 +45,11 @@
             c.NormalizedName.Equals(Category))
             .Name;
         else SelectedName = "Все";
+    }
+
+    public async void FindProduct(int id)
+    {
+        SelectedProduct = DataService.ObjectsList.First(product => product.Id == id);
+        await InvokeAsync(StateHasChanged);
     }
 }
