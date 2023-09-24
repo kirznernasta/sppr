@@ -13,7 +13,7 @@
             {
                 <tr>
                     <td>@product.Name</td>
-                    <td><button @onclick="()=>onButtonClicked.Invoke(product.Id)"> Подробнее</button></td>
+                    <td><button class="btn btn-outline-secondary" @onclick="()=>onButtonClicked.Invoke(product.Id)"> <span class="oi oi-magnifying-glass"></span> Подробнее</button></td>
                 </tr>
             }
         </table>
